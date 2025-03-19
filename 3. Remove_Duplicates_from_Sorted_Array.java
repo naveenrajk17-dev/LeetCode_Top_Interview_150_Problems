@@ -1,21 +1,18 @@
 import java.util.Arrays;
 
-class remove_duplicates {
+class RemoveDuplicates {
     public int removeDuplicates(int[] nums) {
         int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i < nums.length - 1 && nums[i] == nums[i + 1]) {
-                continue;
-            } else {
-                nums[count] = nums[i];
-                count++;
+        for (int num : nums) {
+            if (count == 0 || num != nums[count - 1]) {
+                nums[count++] = num;
             }
         }
         return count;
     }
 
     public static void main(String[] args) {
-        remove_duplicates sol = new remove_duplicates();
+        RemoveDuplicates sol = new RemoveDuplicates();
 
         int[] nums = {1, 1, 2, 2, 3, 4, 4, 5};
         int newLength = sol.removeDuplicates(nums);
